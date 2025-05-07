@@ -1,16 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.VBox?>
-
 <?import javafx.scene.control.Button?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="org.example.tictactoejavafx.HelloController">
-    <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
-    </padding>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
 
-    <Label fx:id="welcomeText"/>
-    <Button text="Hello!" onAction="#onHelloButtonClick"/>
-</VBox>
+<BorderPane fx:controller="org.example.tictactoejavafx.TicTacToeController"
+            xmlns:fx="http://javafx.com/fxml" xmlns="http://javafx.com/javafx/8.0.171">
+    <top>
+        <Label fx:id="statusLabel" text="Игрок X ходит"
+               BorderPane.alignment="CENTER">
+            <font>
+                <Font size="16"/>
+            </font>
+            <BorderPane.margin>
+                <Insets top="10" bottom="10"/>
+            </BorderPane.margin>
+        </Label>
+    </top>
+
+    <center>
+        <GridPane fx:id="boardGrid" hgap="5" vgap="5" alignment="CENTER">
+            <padding>
+                <Insets top="20" bottom="20" left="20" right="20"/>
+            </padding>
+
+            <!-- Кнопки будут добавлены программно в initialize() -->
+        </GridPane>
+    </center>
+
+    <bottom>
+        <HBox alignment="CENTER">
+            <padding>
+                <Insets bottom="10"/>
+            </padding>
+            <Button text="Сначала" onAction="#handleRestartGame"/>
+        </HBox>
+    </bottom>
+</BorderPane>
+
